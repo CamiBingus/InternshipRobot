@@ -126,6 +126,9 @@ public void wennfreidannvor() {
                 dreheRechts();
                 einsVor();
                 dreheRechts();
+                mehrvor(schritte);
+
+                break;
             }
 
         }
