@@ -1,0 +1,7 @@
+*.class
+*.ctxt
+secret
+project.greenfoot
+
+# Project exclude paths
+/out/
