@@ -104,26 +104,57 @@ public void wennfreidannvor() {
 
     }
 
+    public void wievielistVorFassFrei() {
+        int schritte = 0;
+        dreheRechts();
+        wennfreidannvor();
+        dreheLinks();
+        wennfreidannvor();
+        wennfreidannvor();
+        dreheLinks();
+        while (istVorFassFrei()) {
+            schritte=schritte+1;
+            dreheRechts();
+            wennfreidannvor();
+            dreheLinks();
+
+        }
+        if (!istVorneFrei()) {
+            dreheLinks();
+            mehrvor(schritte);
+            dreheRechts();
+            einsVor();
+            dreheRechts();
+        }
+
+    }
+
+    public void mehrvor(int schritte){
+        for (int i = 0; i < schritte; i++) {
+            einsVor();
+        }
+    }
 
     /*#
      * Aufgabe 8: Aufraeumen
      */
     // Hier ist Platz fuer die Methode schiebeFassBisWand():
     public void schiebefassbiswand() {
-        if (istVorne("Fass")) {
-            while (istVorne("Fass") && istVorFassFrei()) {
-                wennfreidannvor();
-            }
-
-
-        } else {
-            if (istVorne("Atommuell")) {
-                while (istVorne("Atommuell") && istVorFassFrei()) {
-                    wennfreidannvor();
-                }
-            }
-
-        }
+        wievielistVorFassFrei();
+//        if (istVorne("Fass")) {
+//            while (istVorne("Fass") && istVorFassFrei()) {
+//                wennfreidannvor();
+//            }
+//
+//
+//        } else {
+//            if (istVorne("Atommuell")) {
+//                while (istVorne("Atommuell") && istVorFassFrei()) {
+//                    wennfreidannvor();
+//                }
+//            }
+//
+//        }
     }
 
     /*#
