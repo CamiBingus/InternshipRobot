@@ -112,20 +112,30 @@ public void wennfreidannvor() {
         wennfreidannvor();
         wennfreidannvor();
         dreheLinks();
-        while (istVorFassFrei()) {
+        while (!istVorne("Wand")|| !istVorne("Atommuell")||!istVorne("Fass")) {
             schritte=schritte+1;
             dreheRechts();
-            wennfreidannvor();
-            dreheLinks();
+            if (istVorneFrei()){
+                einsVor();
+                dreheLinks();
+            }
+            else {
+                dreheUm();
+                einsVor();
+                mehrvor(schritte);
+                dreheRechts();
+                einsVor();
+                dreheRechts();
+            }
 
         }
-        if (!istVorneFrei()) {
-            dreheLinks();
-            mehrvor(schritte);
-            dreheRechts();
-            einsVor();
-            dreheRechts();
-        }
+//        if (!istVorneFrei()) {
+//            dreheLinks();
+//            mehrvor(schritte);
+//            dreheRechts();
+//            einsVor();
+//            dreheRechts();
+//        }
 
     }
 
