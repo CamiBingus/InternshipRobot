@@ -63,23 +63,24 @@ public class AB5 extends Roboter {
             return false;
         }
     }
-public void wennfreidannvor() {
-        if (istVorneFrei()){
+
+    public void wennfreidannvor() {
+        if (istVorneFrei()) {
             einsVor();
-        }
-        else{
-            while(true) {
-                dreheUm();
-            }
+        } else {
+
+            dreheUm();
+            einsVor();
 
         }
-}
+    }
+
     /*#
      * Aufgabe 7 und 11: Look Ahead - Upgrade 2
      */
     // Hier ist Platz fuer die Methode istVorFassFrei():
     public boolean istVorFassFrei() {
-        dreheRechts();
+        dreheLinks();
         wennfreidannvor();
         dreheLinks();
         wennfreidannvor();
@@ -93,13 +94,13 @@ public void wennfreidannvor() {
             dreheRechts();
             return false;
         } else {
-                dreheLinks();
-                wennfreidannvor();
-                wennfreidannvor();
-                dreheRechts();
-                wennfreidannvor();
-                dreheRechts();
-                return true;
+            dreheLinks();
+            wennfreidannvor();
+            wennfreidannvor();
+            dreheRechts();
+            wennfreidannvor();
+            dreheRechts();
+            return true;
         }
 
     }
@@ -112,14 +113,13 @@ public void wennfreidannvor() {
         wennfreidannvor();
         wennfreidannvor();
         dreheLinks();
-        while (!istVorne("Wand")|| !istVorne("Atommuell")||!istVorne("Fass")) {
-            schritte=schritte+1;
+        while (!istVorne("Wand") || !istVorne("Atommuell") || !istVorne("Fass")) {
+            schritte = schritte + 1;
             dreheRechts();
-            if (istVorneFrei()){
+            if (istVorneFrei()) {
                 einsVor();
                 dreheLinks();
-            }
-            else {
+            } else {
                 dreheUm();
                 einsVor();
                 mehrvor(schritte);
@@ -142,7 +142,7 @@ public void wennfreidannvor() {
 
     }
 
-    public void mehrvor(int schritte){
+    public void mehrvor(int schritte) {
         for (int i = 0; i < schritte; i++) {
             einsVor();
         }
@@ -170,6 +170,19 @@ public void wennfreidannvor() {
 //        }
     }
 
+    public void atomfassschiebe() {
+        wievielistVorFassFrei();
+        dreheLinks();
+        einsVor();
+        dreheRechts();
+        einsVor();
+        dreheRechts();
+        wennfreidannvor();
+        wennfreidannvor();
+        wennfreidannvor();
+
+    }
+
     /*#
      * Aufgabe 9: Fuehrerschein
      */
@@ -192,6 +205,124 @@ public void wennfreidannvor() {
      * Einsatz 5: Bitte den Namen nicht aendern!
      */
     public void einsatz5() {
+        while (istWandLinks()) {
+            einsVor();
+        }
+        dreheRechts();
+        wennfreidannvor();
+        wennfreidannvor();
+        wennfreidannvor();
+        wennfreidannvor();
+        dreheLinks();
+        wennfreidannvor();
+        while (!istFassNebenMir()) {
+            einsVor();
+        }
+        dreheRechts();
+        einsVor();
+        dreheLinks();
+        WvIsFreiRechtsRum();
+        dreheUm();
+        laufeBisWand();
+        dreheRechts();
+        geheBisKreuzung();
+        dreheRechts();
+        einsVor();
+        aufnehmen();
+        einsVor();
+        aufnehmen();
+        einsVor();
+        aufnehmen();
+        einsVor();
+        aufnehmen();
+        dreheUm();
+        geheBisKreuzung();
+        benutze("Akku");
+        benutze("Akku");
+        dreheLinks();
+        einsVor();
+        einsVor();
+        dreheLinks();
+        while (!istFassNebenMir()) {
+            einsVor();
+        }
+        dreheRechts();
+        einsVor();
+        einsVor();
+        einsVor();
+        dreheLinks();
+        WvIsFreiRechtsRumfass2();
+    }
 
+    public void laufeBisWand() {
+        while (istVorneFrei()) {
+            einsVor();
+        }
+    }
+
+
+    public boolean istFassNebenMir() {
+        dreheRechts();
+        if (!istVorne("Atommuell")) {
+            dreheLinks();
+            return false;
+        } else if (istVorne("Atommuell")) {
+            dreheLinks();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    ;
+
+
+    public void WvIsFreiRechtsRum() {
+        int schritte = 0;
+        einsVor();
+        dreheRechts();
+        while (!istVorne("Wand") || !istVorne("Atommuell") || !istVorne("Fass")) {
+            schritte = schritte + 1;
+            dreheLinks();
+            if (istVorneFrei()) {
+                einsVor();
+                dreheRechts();
+            } else {
+                dreheUm();
+                einsVor();
+                mehrvor(schritte);
+                dreheLinks();
+                einsVor();
+                dreheLinks();
+                mehrvor(schritte);
+
+                break;
+            }
+        }
+    }
+
+    public void WvIsFreiRechtsRumfass2() {
+        int schritte = 0;
+        einsVor();
+        dreheRechts();
+        while (!istVorne("Wand") || !istVorne("Atommuell") || !istVorne("Fass")) {
+            schritte = schritte + 1;
+            dreheLinks();
+            if (istVorneFrei()) {
+                einsVor();
+                dreheRechts();
+            } else {
+                dreheUm();
+                einsVor();
+                mehrvor(schritte);
+                dreheLinks();
+                einsVor();
+                dreheLinks();
+                mehrvor(schritte - 1);
+
+                break;
+            }
+        }
     }
 }
