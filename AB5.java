@@ -227,14 +227,10 @@ public class AB5 extends Roboter {
         dreheRechts();
         geheBisKreuzung();
         dreheRechts();
-        einsVor();
-        aufnehmen();
-        einsVor();
-        aufnehmen();
-        einsVor();
-        aufnehmen();
-        einsVor();
-        aufnehmen();
+        while (istVorneFrei()) {
+            einsVor();
+            aufnehmen();
+        }
         dreheUm();
         geheBisKreuzung();
         benutze("Akku");
@@ -252,6 +248,18 @@ public class AB5 extends Roboter {
         einsVor();
         dreheLinks();
         WvIsFreiRechtsRumfass2();
+        dreheUm();
+        laufeBisWand();
+        dreheRechts();
+        geheBisKreuzung();
+        benutze("Akku");
+        laufeBisWand();
+        dreheRechts();
+        if (istFassVorne()) {
+            schiebefassbiswand();
+            benutze("Akku");
+
+        }
     }
 
     public void laufeBisWand() {
@@ -324,5 +332,18 @@ public class AB5 extends Roboter {
                 break;
             }
         }
+    }
+    public boolean istFassNebenMir3() {
+        dreheRechts();
+        if (!istVorne("Atommuell")) {
+            dreheLinks();
+            return false;
+        } else if (istVorne("Atommuell")) {
+            dreheLinks();
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
