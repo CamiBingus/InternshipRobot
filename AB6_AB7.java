@@ -81,10 +81,9 @@ public class AB6_AB7 extends Roboter
      * AB6 - Einsatz 6:
      */
     public void einsatz6() {
-        while (!istAufGegenstand("Portal")) {
             bisWandMitZaehlen();
             dreheRechtsMitZaehlen();
-            if (!istAufGegenstand("Portal")) {
+            while (!istAufGegenstand("Portal")) {
                 if (!istWandLinks() && drehungen != 0) {
                     dreheLinksMitZaehlen();
                     einsVorMitZaehlen();
@@ -97,7 +96,6 @@ public class AB6_AB7 extends Roboter
                 }
             }
         }
-    }
 
     /*#
      * Weitere Methoden zum AB7:
@@ -130,5 +128,10 @@ public class AB6_AB7 extends Roboter
      */
     public void einsatz7(){
 
+    }
+    public void laufeBisWand() {
+        while (istVorneFrei()) {
+            einsVor();
+        }
     }
 }

@@ -60,7 +60,7 @@ public class RoboterWelt extends World
     }
 
     /**
-     * Das Roboterszenario auf die Anfangswerte (Level 1) zurücksetzen
+     * Das Roboterszenario auf die Anfangswerte (Level 1) zurï¿½cksetzen
      */
     public void neuStart() {
         secret.init();
@@ -82,7 +82,7 @@ public class RoboterWelt extends World
     }
 
     /** 
-     * Secret-Datei laden, um ein höheres Level freizuschalten
+     * Secret-Datei laden, um ein hï¿½heres Level freizuschalten
      * 
      */
     public void ladeSecretDatei() {
@@ -150,7 +150,7 @@ public class RoboterWelt extends World
     }
 
     /** 
-     * Überschrift oben links ausgeben.
+     * ï¿½berschrift oben links ausgeben.
      */
     private void zeichneUeberschrift(String text) {
         this.getBackground().setColor(Color.LIGHT_GRAY);
@@ -219,7 +219,7 @@ public class RoboterWelt extends World
     /**
      * Generiert eine Welt aus dem angegeben 2-dim. Array
      * Dabei werden sowohl die Hintergrundbilder gesetzt, als auch Objekte
-     * in die Welt eingefügt.
+     * in die Welt eingefï¿½gt.
      * @param backg 2-dim. Array, das die Welt beschreibt.
      */
     private void generateWorld(int[][] backg)
@@ -239,7 +239,7 @@ public class RoboterWelt extends World
     }
 
     /**
-     * Ändert den Hintergrund einer Zelle
+     * ï¿½ndert den Hintergrund einer Zelle
      */
     public void changeBackground(int typ, int x, int y) {
         GreenfootImage back = this.getBackground();
@@ -273,7 +273,7 @@ public class RoboterWelt extends World
     }
 
     /**
-     * Für Welten mit Schwerkraft berechnet diese Methode, wie die Gegenstände fallen müssen.
+     * Fï¿½r Welten mit Schwerkraft berechnet diese Methode, wie die Gegenstï¿½nde fallen mï¿½ssen.
      * 
      */
     private void nurSchwerkraftObjekte(List<Actor> l) {
@@ -357,7 +357,7 @@ public class RoboterWelt extends World
         }
     }
 
-    /* Es folgen nun die Definitionen der Level und Einsätze                      */
+    /* Es folgen nun die Definitionen der Level und Einsï¿½tze                      */
     /* ---------------------------------------------------------------------------*/
 
     private void ab1_roboterSteuern()
@@ -438,16 +438,16 @@ public class RoboterWelt extends World
 
         weltLeeren();
         generateWorld(backg);
-        zeichneUeberschrift("Einsatz 2: Brennstäbe sichern");
+        zeichneUeberschrift("Einsatz 2: Brennstï¿½be sichern");
         AB2 ab2 = new AB2();
         addObject(ab2,  0, 10);
         ab2.einsatz2();
         Greenfoot.delay(2);
         if (ab2.istAufGegenstand("Portal") && ab2.getAnzahl("Brennstab")==2) {
             secret.writeLevel(3);
-            melde("Super! Du hast die Brennstäbe gesichert");
+            melde("Super! Du hast die Brennstï¿½be gesichert");
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -502,7 +502,7 @@ public class RoboterWelt extends World
 
         weltLeeren();
         generateWorld(backg);
-        zeichneUeberschrift("Einsatz 3:Feuer löschen");
+        zeichneUeberschrift("Einsatz 3:Feuer lï¿½schen");
         AB3 ab3 = new AB3();
         addObject(ab3,  0, 3);
         ab3.setAnzahlVonGegenstand("Akku",10);
@@ -546,9 +546,9 @@ public class RoboterWelt extends World
         }
         if (ab3.istAufGegenstand("Portal") && feueraus) {
             secret.writeLevel(4);
-            melde("Hurra! Das Feuer ist gelöscht.\n Die Katastrophe wurde verhindert.");
+            melde("Hurra! Das Feuer ist gelï¿½scht.\n Die Katastrophe wurde verhindert.");
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
         Greenfoot.setWorld(new RoboterWelt());
 
@@ -604,7 +604,7 @@ public class RoboterWelt extends World
 
         // Lege Schraubenreihe zufaellig
         for (int i=0; i<12; i++) {
-            // muss sein, weil aus irgendwelchen Gründen "alte" Schrauben liegengeblieben sind
+            // muss sein, weil aus irgendwelchen Grï¿½nden "alte" Schrauben liegengeblieben sind
             List<Gegenstand> g = getObjectsAt(i+1, 10, Gegenstand.class);
             removeObjects(g);																							  
             if (Greenfoot.getRandomNumber(3)==0)
@@ -720,7 +720,7 @@ public class RoboterWelt extends World
             secret.writeLevel(5);
             melde("In letzter Minute wurde das Kraftwerk abgeschaltet.\nDer Super-GAU wurde dadurch verhindert.");
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -743,7 +743,7 @@ public class RoboterWelt extends World
         weltLeeren();
         generateWorld(backg);
 
-        zeichneUeberschrift("AB5 - Methoden mit Rückgabewert");
+        zeichneUeberschrift("AB5 - Methoden mit Rï¿½ckgabewert");
         AB5 ab5;
         ab5 = new AB5();
         addObject(ab5,  1, 3);
@@ -847,9 +847,9 @@ public class RoboterWelt extends World
 
         if (geschafft) {
             secret.writeLevel(6);
-            melde("Es herrscht wieder Ordnung im Zwischenlager.\nSo ein Aufräumroboter wäre auch für zu Hause praktisch...");
+            melde("Es herrscht wieder Ordnung im Zwischenlager.\nSo ein Aufrï¿½umroboter wï¿½re auch fï¿½r zu Hause praktisch...");
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
 
         Greenfoot.setWorld(new RoboterWelt());
@@ -915,10 +915,10 @@ public class RoboterWelt extends World
                 secret.writeLevel(7);
                 melde("Notfallprogramm aktiviert!\nSuche Ausgang...\nSuche Ausgang...\nAusgang nach 65 Schritten erreicht!");
             } else {
-                warne("Du hast die Aufgabe noch nicht korrekt erfüllt.\nDer Pledge-Algorithmus sollte für dieses\nLabyrinth 65 Schritte benötigen.");
+                warne("Du hast die Aufgabe noch nicht korrekt erfï¿½llt.\nDer Pledge-Algorithmus sollte fï¿½r dieses\nLabyrinth 65 Schritte benï¿½tigen.");
             }
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -1033,7 +1033,7 @@ public class RoboterWelt extends World
 
         generateWorld(backg);
 
-        zeichneUeberschrift("Einsatz 7: Brennstäbe inventarisieren");
+        zeichneUeberschrift("Einsatz 7: Brennstï¿½be inventarisieren");
         AB6_AB7 ab7;
         ab7 = new AB6_AB7();
         addObject(ab7,  1, 6);
@@ -1047,12 +1047,12 @@ public class RoboterWelt extends World
         if (ab7.istAufGegenstand("Portal")) {
             if(ab7.getBrennstaebe()==brennstaebe) {
                 secret.writeLevel(8);
-                melde("Jetzt sind auch noch die Stollen eingestürtzt.\nZum Glück hat das Notfallprogramm funktioniert.\nGut gemacht, Robi!");
+                melde("Jetzt sind auch noch die Stollen eingestï¿½rtzt.\nZum Glï¿½ck hat das Notfallprogramm funktioniert.\nGut gemacht, Robi!");
             } else {
-                warne("Du hast die Aufgabe noch nicht korrekt erfüllt.\nEs hätten "+brennstaebe+" Brennstaebe sein müssen.");
+                warne("Du hast die Aufgabe noch nicht korrekt erfï¿½llt.\nEs hï¿½tten "+brennstaebe+" Brennstaebe sein mï¿½ssen.");
             }
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -1137,9 +1137,9 @@ public class RoboterWelt extends World
         Greenfoot.delay(2);
         if (ab8.istAufGegenstand("Portal") && anz == qm) {
             secret.writeLevel(9);
-            melde("Nur noch "+qm+" Plätze?\nNa viel Platz ist das ja nicht mehr.\nAber dafür kannst du ja nichts.\nAuftrag erfüllt!");
+            melde("Nur noch "+qm+" Plï¿½tze?\nNa viel Platz ist das ja nicht mehr.\nAber dafï¿½r kannst du ja nichts.\nAuftrag erfï¿½llt!");
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt.\nDu hast "+anz+" Plätze ermittelt. Es waren aber "+qm+" Plätze.");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt.\nDu hast "+anz+" Plï¿½tze ermittelt. Es waren aber "+qm+" Plï¿½tze.");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -1228,7 +1228,7 @@ public class RoboterWelt extends World
         s.setAufzug((Gegenstand) this.getObjectsAt(6,5,Gegenstand.class).get(0),4);
         w = (Wand) (this.getObjectsAt(1, 4, Wand.class).get(0));
         w.setSchalter(s);        
-        zeichneUeberschrift("Einsatz 9: Das Endlager wird bestückt");
+        zeichneUeberschrift("Einsatz 9: Das Endlager wird bestï¿½ckt");
 
         AB9 aufzugRoboter, sprengRoboter1, sprengRoboter2, legeRoboter;
         aufzugRoboter = new AB9();
@@ -1260,7 +1260,7 @@ public class RoboterWelt extends World
         boolean ok = true;
         if (legeRoboter.getY() != 2 || aufzugRoboter.getY()!=2 || sprengRoboter1.getY()!=2 || sprengRoboter2.getY()!=2) {
             ok = false;
-            warne("Du hast die Aufgabe noch nicht erfüllt!\nDie Roboter stehen nicht im oberen Stollen.");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt!\nDie Roboter stehen nicht im oberen Stollen.");
         } else {
             for(int x=8; x <11; x++) {
                 for(int y=5; y<7; y++) {
@@ -1282,13 +1282,13 @@ public class RoboterWelt extends World
             }
 
             if (!ok) {
-                warne("Du hast die Aufgabe noch nicht erfüllt.\nDie Brennstäbe sind nicht\nin den alten Stollen positioniert.");
+                warne("Du hast die Aufgabe noch nicht erfï¿½llt.\nDie Brennstï¿½be sind nicht\nin den alten Stollen positioniert.");
             }
         }
 
         if (ok) {
             secret.writeLevel(10);
-            melde("Prima gemacht. Auftrag erfüllt!");
+            melde("Prima gemacht. Auftrag erfï¿½llt!");
         } 
         Greenfoot.setWorld(new RoboterWelt());
     }
@@ -1320,7 +1320,7 @@ public class RoboterWelt extends World
         Wand w = (Wand) (this.getObjectsAt(1, 2, Wand.class).get(0));
         w.setSchalter(s);
 
-        zeichneUeberschrift("AB10 - Zählschleifen");
+        zeichneUeberschrift("AB10 - Zï¿½hlschleifen");
         Greenfoot.setSpeed(40);
 
         AB10 r1 = new AB10();
@@ -1429,16 +1429,16 @@ public class RoboterWelt extends World
         if(anz >= 10){
             secret.writeLevel(11);
             if (anz<15) {
-                melde("Mindestanforderung erfüllt.\n"+anz+" Diamanten gesammelt.");
+                melde("Mindestanforderung erfï¿½llt.\n"+anz+" Diamanten gesammelt.");
             } else {
                 if (anz <20) {
-                    melde("Gut gemacht. "+anz+" Diamanten gesammelt.\nDie Roboter werden für die Minenarbeit trainiert!");
+                    melde("Gut gemacht. "+anz+" Diamanten gesammelt.\nDie Roboter werden fï¿½r die Minenarbeit trainiert!");
                 } else {
                     melde("Grandios. "+anz+" Diamanten gesammelt.\nDiese Roboter kauft die Firma sofort!");
                 }
             }
         } else {
-            warne("Du hast die Aufgabe noch nicht erfüllt!");
+            warne("Du hast die Aufgabe noch nicht erfï¿½llt!");
         }
         Greenfoot.setWorld(new RoboterWelt());
     }
