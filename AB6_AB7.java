@@ -1,9 +1,11 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 public class AB6_AB7 extends Roboter
-{  
+{
     // Eigenschaften eines AB6 - Objektvariablen (Attribute) werden deklariert:
     private int schritte;
+    private int drehungen =0;
+    // + ist links und - ist rechts
+
+
     // AB6 - Aufgabe 8: Hier wird das Attribut drehungen deklariert:
 
     /*#
@@ -18,7 +20,7 @@ public class AB6_AB7 extends Roboter
     }
 
     /*#
-     * AB6 - Beispiel Zählen, 
+     * AB6 - Beispiel Zï¿½hlen, 
      * AB7 - Aufgabe 4: Super
      */
     public void einsVorMitZaehlen() {
@@ -32,28 +34,35 @@ public class AB6_AB7 extends Roboter
      * AB7 - Aufgabe 5: Brennstaebe zaehlen
      */
     public void bisWandMitZaehlen() {
-
+        while (istVorneFrei()) {
+            einsVorMitZaehlen();
+        }
     }
+
 
     /*#
      * AB6 - Aufgabe 8: Drehzaehler
-     * AB7 - Aufgabe 6: Standardmethoden überschreiben
+     * AB7 - Aufgabe 6: Standardmethoden ï¿½berschreiben
      */
     public void dreheRechtsMitZaehlen() {
-
+        dreheRechts();
+        drehungen--;
     }
 
     public void dreheLinksMitZaehlen() {
-
+        dreheLinks();
+        drehungen++;
     }
 
     /*#
      * AB6 - Aufgabe 9: Eine get-Methode
      */
     public int getSchritte() {
-        return 0;
+        return schritte;
     }
-
+    public int getDrehungen() {
+        return drehungen;
+    }
     /*#
      * AB6 - Aufgabe 10: Deine get-Methode
      */
@@ -61,7 +70,7 @@ public class AB6_AB7 extends Roboter
     // Benenne sie sinnvoll:
 
     /*#
-     * Liefert die Anzahl der gezählten Brennstäbe zurück
+     * Liefert die Anzahl der gezï¿½hlten Brennstï¿½be zurï¿½ck
      * AB7 - Aufgabe 5: Brennstaebe zaehlen
      */
     public int getBrennstaebe() {
@@ -72,7 +81,22 @@ public class AB6_AB7 extends Roboter
      * AB6 - Einsatz 6:
      */
     public void einsatz6() {
-
+        while (!istAufGegenstand("Portal")) {
+            bisWandMitZaehlen();
+            dreheRechtsMitZaehlen();
+            if (!istAufGegenstand("Portal")) {
+                if (!istWandLinks() && drehungen != 0) {
+                    dreheLinksMitZaehlen();
+                    einsVorMitZaehlen();
+                } else {
+                    if (istWandVorne()) {
+                        dreheRechtsMitZaehlen();
+                    } else {
+                        einsVorMitZaehlen();
+                    }
+                }
+            }
+        }
     }
 
     /*#
@@ -89,15 +113,15 @@ public class AB6_AB7 extends Roboter
     // Hier kommt die Methode istFassLinks() hin:
 
     /*#
-     * AB7 - Aufgabe 8: Standardmethoden überschreiben (istWandVorne(), istWandLinks())
+     * AB7 - Aufgabe 8: Standardmethoden ï¿½berschreiben (istWandVorne(), istWandLinks())
      */
 
     /*#
-     * AB7 - Hilfsmethode für Einsatz 7:
+     * AB7 - Hilfsmethode fï¿½r Einsatz 7:
      */
 
     public boolean istWandLinks() {
-        // Diese Methode muss so erweitert werden, dass sie auch Fässer auf der linken Seite erkennt.
+        // Diese Methode muss so erweitert werden, dass sie auch Fï¿½sser auf der linken Seite erkennt.
         return super.istWandLinks();
     }
 
